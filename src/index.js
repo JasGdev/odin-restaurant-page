@@ -1,5 +1,5 @@
 // src/index.js
 import "./styles.css";
-import {loadHomePage} from './homepage.js'
+import {loadHomePage} from './home-page.js'
 
 loadHomePage();
