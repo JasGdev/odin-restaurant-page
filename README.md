@@ -158,4 +158,92 @@ npx webpack
 ```
 
 
+---
 
+# Steps to setup Loading image files
+
+
+#### For image files used in html 
+
+```bash
+# install html-loader 
+
+npm install --save-dev html-loader
+
+# tell Webpack to use something called html-loader
+# add the following object to the module.rules array within webpack.config.js
+
+// webpack.config.js
+{
+  test: /\.html$/i,
+  use: ["html-loader"],
+}
+```
+
+#### For image files used in JavaScript 
+
+```bash
+# need to import the images into our JavaScript module
+# Since images aren’t JavaScript, we need to tell Webpack that these files will be assets by adding an asset/resource rule
+
+# add the following object to the module.rules array within webpack.config.js
+
+// webpack.config.js
+{
+  test: /\.(png|svg|jpg|jpeg|gif)$/i,
+  type: "asset/resource",
+}
+
+# Then, in whatever JavaScript module we want to use that image in, we just have to default import it.
+
+// src/index.js
+import odinImage from "./odin.png";
+
+const image = document.createElement("img");
+image.src = odinImage;
+
+document.body.appendChild(image);
+```
+
+---
+
+# webpack.config.js after
+
+```bash
+// webpack.config.js
+import path from "node:path";
+import HtmlWebpackPlugin from "html-webpack-plugin";
+
+export default {
+  mode: "development",
+  entry: "./src/index.js",
+  output: {
+    filename: "main.js",
+    path: path.resolve(import.meta.dirname, "dist"),
+    clean: true,
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: "./src/template.html",
+    }),
+  ],
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        use: ["style-loader", "css-loader"],
+      },
+      {
+        test: /\.html$/i,
+        use: ["html-loader"],
+      },
+      {
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        type: "asset/resource",
+      },
+    ],
+  },
+};
+
+
+```
