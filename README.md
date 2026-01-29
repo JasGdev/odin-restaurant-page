@@ -1,15 +1,3 @@
-# After clone template
-
-####
-
-```bash
-npm install
-npm run dev
-```
-
-
-
-
 # Steps to setup Webpack
 
 
