@@ -252,7 +252,7 @@ export default {
 # Steps to setup Webpack dev server
 
 
-#### 1. install style-loader and css-loader
+#### 1. install webpack-dev-server
 
 ```bash
 npm install --save-dev webpack-dev-server
