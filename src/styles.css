@@ -1,5 +1,36 @@
 * {
     margin: 0;
     padding: 0;
+}
+
+html, body{
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
     background-color: aqua;
+}
+
+header {
+    display: flex;
+    padding: 20px;
+    background-color: rgb(150, 150, 150);
+    align-items: center;
+    justify-content: center;
+}
+
+nav {
+    display: flex;
+    gap: 50px;
+}
+
+
+#content {
+    background-color: rgb(221, 221, 221);
+   flex: 1;
+    
+
 }
