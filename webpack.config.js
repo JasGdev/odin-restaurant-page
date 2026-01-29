@@ -1,7 +1,5 @@
 // webpack.config.js
 import path from "node:path";
-
-// making sure our Webpack configuration has access to HtmlWebpackPlugin
 import HtmlWebpackPlugin from "html-webpack-plugin";
 
 export default {
@@ -12,10 +10,20 @@ export default {
         path: path.resolve(import.meta.dirname, "dist"),
         clean: true,
     },
-    // then adding it as a plugin to the configuration object
     plugins: [
         new HtmlWebpackPlugin({
             template: "./src/template.html",
         }),
     ],
+    // Since these aren’t plugins, they go in a separate section
+    // All this does is tell Webpack that if it encounters an imported file ending with .css,
+    // it should use the listed loaders to process that CSS file.
+    module: {
+        rules: [
+            {
+                test: /\.css$/i,
+                use: ["style-loader", "css-loader"],
+            },
+        ],
+    },
 };
