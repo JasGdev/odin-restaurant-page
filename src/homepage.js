@@ -1,4 +1,4 @@
-function loadPage(){
+function loadHomePage(){
     // append items to div#content
     console.log('Export working')
     const display = document.querySelector('#content')
@@ -6,4 +6,4 @@ function loadPage(){
 
 }
 
-export { loadPage };
+export { loadHomePage };
