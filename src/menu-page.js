@@ -3,12 +3,6 @@ function loadMenuPage(){
     const display = document.querySelector('#content');
 
     // main page container
-
-    
-
-
-
-
     const menuPageContainer = document.createElement('div');
     menuPageContainer.classList.add('pageContainer', 'page');
     display.appendChild(menuPageContainer);
